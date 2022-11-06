@@ -1,4 +1,4 @@
-import React from 'react'
+import React from 'react';
 
 function UserRegister() {
   return (
@@ -6,4 +6,4 @@ function UserRegister() {
   )
 }
 
-export default UserRegister
+export default UserRegister;
