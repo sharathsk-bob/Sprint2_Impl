@@ -1,7 +1,10 @@
 import React from 'react';
+import axios from 'axios';
 import { useState, useEffect } from "react";
 import {useSelector,useDispatch} from "react-redux";
 import { login} from "../actions";
+import { render } from 'react-dom';
+import Admin from './Admin';
 //import state from "../Store";
 
 //import axios from 'axios';
@@ -20,8 +23,16 @@ const [formValues, setFormValues] = useState(initialValues);
   };
   //const dis1=()=>{dispatch(register())};
   const fetchUsers = async() =>{
-    //await axios.get(`http://localhost:8020/capg/userinterface/users/${id}`, JSON.stringify(formValues),{headers:{"Content-Type" : "application/json"}}).then((data)=>console.log(data.data)).catch((error)=>console.log(error));
+    await axios.get('http://localhost:8020/capg/userinterface/users',{headers:{"Content-Type" : "application/json"}}).then((data)=>{
+    //let num=[0];
+    for(let i=0;i<data.data.length;i++){
+      if(data.data[i].email==formValues.email && data.data[i].password==formValues.password && data.data[i].loginName==formValues.loginName ){
+        console.log("Logged In");
+        break;
+      }
+    }}).catch((error)=>console.log(error));
   }
+  //console.log(fetchUsers);
   const handleSubmit = (e) => {
     e.preventDefault();
     setFormErrors(validate(formValues));
@@ -111,9 +122,9 @@ const [formValues, setFormValues] = useState(initialValues);
             />
           </div>
           <p>{formErrors.password}</p>
-          <button className="fluid ui button blue" onClick={()=>{dispatch(login())}}>Submit</button>
-          <button onClick={()=>{dispatch(login())}}>test</button>
-          {isLogged? <p>Logged In</p>:<p>please log in</p>} 
+          <button className="fluid ui button blue" onClick={fetchUsers}>Submit</button>
+          {/* <button onClick={()=>{dispatch(login())}}>test</button>
+          {isLogged? <p>Logged In</p>:<p>please log in</p>}  */}
         </div>
       </form>
       
@@ -121,4 +132,4 @@ const [formValues, setFormValues] = useState(initialValues);
   )
 }
 
-export default UserLogin
+export default UserLogin;

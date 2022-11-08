@@ -5,6 +5,8 @@ import { BrowserRouter as Router, Routes, Route } from "react-router-dom";
 import Nav from "./Components/Nav";
 import UserLogin from "./Components/UserLogin";
 import UserRegister from "./Components/UserRegister";
+import Admin from "./Components/Admin";
+import Customer from "./Components/Customer";
 
 function App() {
   const isRegistered=useSelector((state)=>state.register);
@@ -18,6 +20,8 @@ function App() {
           
           <Route path="/register" element={<UserRegister/>}  />
           <Route path="/login" element={<UserLogin/>} />
+          <Route path="/admin" element={<Admin/>}/>
+          <Route path="/customer" element={<Customer/>}/>
           {/* {isLogged ? <p>Logged in</p>:<p>Not logged in</p>} */}
         </Routes>
         {/* <h1>Nutrition App</h1>
