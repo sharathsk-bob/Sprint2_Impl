@@ -15,10 +15,8 @@ function App() {
     <div className="App">
         <Nav />
         <Routes>
-          if(isRegistered){
+          
           <Route path="/register" element={<UserRegister/>}  />
-        }
-          {/* {isRegistered? <p>Registered</p>:<p>please register</p>} */}
           <Route path="/login" element={<UserLogin/>} />
           {/* {isLogged ? <p>Logged in</p>:<p>Not logged in</p>} */}
         </Routes>
