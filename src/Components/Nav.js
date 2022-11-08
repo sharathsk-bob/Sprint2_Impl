@@ -13,6 +13,9 @@ function Nav() {
         <Link style={navStyle} to="/login" >
           <li>Login</li>
         </Link>
+        <Link style={navStyle} to="/WeightLog" >
+          <li>WeightLog</li>
+        </Link>
       </ul>
     </nav>
   );

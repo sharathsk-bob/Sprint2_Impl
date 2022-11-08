@@ -7,6 +7,8 @@ import UserLogin from "./Components/UserLogin";
 import UserRegister from "./Components/UserRegister";
 import Admin from "./Components/Admin";
 import Customer from "./Components/Customer";
+import WeightLog from "./Components/WeightLog";
+import WeightLogView from "./Components/WeightLogView";
 
 function App() {
   const isRegistered=useSelector((state)=>state.register);
@@ -22,6 +24,9 @@ function App() {
           <Route path="/login" element={<UserLogin/>} />
           <Route path="/admin" element={<Admin/>}/>
           <Route path="/customer" element={<Customer/>}/>
+
+          <Route path="/WeightLog" element={<WeightLog/>}  />
+
           {/* {isLogged ? <p>Logged in</p>:<p>Not logged in</p>} */}
         </Routes>
         {/* <h1>Nutrition App</h1>
