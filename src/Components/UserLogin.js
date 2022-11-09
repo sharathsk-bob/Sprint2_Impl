@@ -2,21 +2,27 @@ import React from 'react';
 import axios from 'axios';
 import { useState, useEffect } from "react";
 import {useSelector,useDispatch} from "react-redux";
+import { useNavigate } from "react-router-dom";
+import Button from 'react-bootstrap/Button';
+import Form from 'react-bootstrap/Form';
 import { login} from "../actions";
 import { render } from 'react-dom';
 import Admin from './Admin';
+import Nav from './Nav';
 //import state from "../Store";
 
 //import axios from 'axios';
 function UserLogin() {
+  const history=useNavigate();
   const initialValues={loginName:"",email:"",password:""};
 const [formValues, setFormValues] = useState(initialValues);
   const [formErrors, setFormErrors] = useState({});
   const [isSubmit, setIsSubmit] = useState(false);
-  const isLogged=useSelector((state)=>state.register);
+  var isLogged=useSelector((state)=>state.login);
   const dispatch=useDispatch();
+  const [isLoggedIn,setisLoggedIn]=useState(false);
 
-
+  localStorage.setItem("isLoggedIn",false);
   const handleChange = (e) => {
     const { name, value } = e.target;
     setFormValues({ ...formValues, [name]: value });
@@ -28,7 +34,21 @@ const [formValues, setFormValues] = useState(initialValues);
     for(let i=0;i<data.data.length;i++){
       if(data.data[i].email==formValues.email && data.data[i].password==formValues.password && data.data[i].loginName==formValues.loginName ){
         console.log("Logged In");
+        //dispatch(login());
+        localStorage.setItem("isLoggedIn",true);
+        isLogged=true;
+        if(data.data[i].role==="Admin"){
+          history("/admin");
+        }else if(data.data[i].role==="Customer"){
+          history("/customer");
+        }else{
+          isLogged=false;
+          setisLoggedIn=true;
+          localStorage.setItem("isLogged",false);
+        }
         break;
+      }else{
+        validate(formValues);
       }
     }}).catch((error)=>console.log(error));
   }
@@ -48,14 +68,13 @@ const [formValues, setFormValues] = useState(initialValues);
   // };
 
   useEffect(() => {
+    //const loginState=localStorage.getItem("isLoggedIn");
     console.log(formErrors);
     if (Object.keys(formErrors).length === 0 && isSubmit) {
       console.log(formValues);
     }
   }, [formErrors]);
-  const validCredentials =()=>{
-      //if(formValues.email==fetchUsers)
-  }
+  
   const validate = (values) => {
     const errors = {};
     const regex = /^[^\s@]+@[^\s@]+\.[^\s@]{2,}$/i;
@@ -73,6 +92,8 @@ const [formValues, setFormValues] = useState(initialValues);
       errors.password = "Password must be more than 4 characters";
     } else if (values.password.length > 10) {
       errors.password = "Password cannot exceed more than 10 characters";
+    }if(!isLogged){
+      errors.login="Invalid Credentials";
     }
     return errors;
   };
@@ -85,7 +106,7 @@ const [formValues, setFormValues] = useState(initialValues);
         <pre>{JSON.stringify(formValues, undefined, 2)}</pre>
       )} */}
 
-      <form onSubmit={handleSubmit}>
+      <form className='form' onSubmit={handleSubmit}>
         <h1>Login Form</h1>
         <div className="ui divider"></div>
         <div className="ui form">
@@ -123,8 +144,8 @@ const [formValues, setFormValues] = useState(initialValues);
           </div>
           <p>{formErrors.password}</p>
           <button className="fluid ui button blue" onClick={fetchUsers}>Submit</button>
-          {/* <button onClick={()=>{dispatch(login())}}>test</button>
-          {isLogged? <p>Logged In</p>:<p>please log in</p>}  */}
+          {/* <button onClick={()=>{dispatch(login())}}>test</button>*/}
+          <p>{formErrors.login}</p>  
         </div>
       </form>
       

@@ -1,0 +1,14 @@
+.NewApp{
+    background-color: rgb(235, 180, 77);
+    border-radius: 20px;
+    box-sizing: border-box;
+    height: 100vh;
+    max-width: 500px;
+    width: 100%;
+    margin: auto;
+    text-align: center;
+}
+h1{
+    font-family: "Quicksand", sans-serif;
+    color: rgb(101, 88, 218);
+}

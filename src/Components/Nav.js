@@ -1,21 +1,38 @@
 import React from "react";
-import { Link } from "react-router-dom";
+import { NavLink } from "react-router-dom";
 //Hello
-function Nav() {
+const Nav =(props)=> {
   const navStyle = { color: "red" };
+  const logOut=()=>{
+    localStorage.setItem("isLoggedIn",0)
+}
   return (
     <nav>
       <h3>Nutrition App</h3>
-      <ul>
-        <Link style={navStyle} to="/register">
+      <ul style={{listStyle:"none"}}>
+        <NavLink style={navStyle} to="/register">
           <li>Register</li>
-       </Link>
-        <Link style={navStyle} to="/login" >
+       </NavLink>
+        <NavLink style={navStyle} to="/login" >
           <li>Login</li>
-        </Link>
-        <Link style={navStyle} to="/WeightLog" >
+
+        </NavLink>
+        <NavLink style={navStyle} to="/" onClick={logOut}>
+          <li>logOut</li>
+        </NavLink>
+        
+        <NavLink style={navStyle} to="/DietPlan" >
+          <li>DietPlan</li>
+        </NavLink>
+      
+        
+        <NavLink style={navStyle} to="/WeightLog" >
           <li>WeightLog</li>
-        </Link>
+        </NavLink>
+        <NavLink style={navStyle} to="/nutrition" >
+          <li>NutritionModule</li>
+        </NavLink>
+
       </ul>
     </nav>
   );

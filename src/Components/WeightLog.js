@@ -1,44 +1,53 @@
 import React, { useState } from "react";
 import { useEffect } from "react";
 import axios from "axios";
-import WeightLogView from "./WeightLogView";
+// import DietPlanView from "./DietPlanView";
 
 function WeightLog() {
-  const [weightLog, setWeightLog] = useState();
+  const [weightLog, setWeightLog] = useState("");
   useEffect(() => {
 
     const v = () => {axios
-      .get(`http://localhost:8040/weightLog`)
-      .then((data) => {
-        setWeightLog(data.data);
-        console.log(data.data);
+      .get(`http://localhost:8020/weightLog/showWeightLog`)
+      .then((dat) => {
+        setWeightLog(dat.data);
+        console.log(weightLog);
       })
       .catch((error) => console.log(error));}
       v()
   }, []);
-
 
   return (
     <div>
       <h1>Weight Logs</h1>
         <div className="grid" id="WeightHead">
             <table>
+              <thead>
               <tr>
-                <th>ID</th>
-                <th>Weight</th>
-                <th>created_At</th>
-                <th>updated_At</th>
-                <th>userid</th>
+                <th scope="col">Id</th>
+                <th scope="col">Weight</th>
+                <th scope="col">created_At</th>
+                <th scope="col">updated_At</th>
               </tr>
-
+              </thead>
+          {weightLog &&
+          weightLog.map((weightlog) => (
+        //   <div key={dietplan} className='tile'>
+        //     <DietPlanView dietplan={dietplan} />
+        //   </div>
+        <tbody>
+              <tr>
+                <th>{weightlog.id}</th>
+                <th>{weightlog.created_At}</th>
+                <th>{weightlog.updated_At}</th>
+                <th>{weightlog.weight}</th>
+              </tr>
+        </tbody>
+        ))}
+       
             </table>
         </div>
-      {weightLog &&
-        weightLog.map((weightLog) => (
-          <div key={weightLog.weightLogId} className='tile'>
-            <WeightLogView weightLog={weightLog} />
-          </div>
-        ))}
+        
     </div>
   );
 }

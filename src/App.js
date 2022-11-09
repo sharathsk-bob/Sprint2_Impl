@@ -7,26 +7,31 @@ import UserLogin from "./Components/UserLogin";
 import UserRegister from "./Components/UserRegister";
 import Admin from "./Components/Admin";
 import Customer from "./Components/Customer";
+import NutritionModule from "./Components/NutritionModule";
+import Payment from "./Components/Payment";
+import DietPlan from "./Components/DietPlan";
 import WeightLog from "./Components/WeightLog";
-import WeightLogView from "./Components/WeightLogView";
+import logOut from "./Components/logOut";
 
 function App() {
-  const isRegistered=useSelector((state)=>state.register);
-  const isLogged=useSelector((state)=>state.login);
+  //const isRegistered=useSelector((state)=>state.register);
+  //const isLogged=useSelector((state)=>state.login);
   //const dispatch=useDispatch();
   return (
     <Router>
     <div className="App">
         <Nav />
+        <header className="App-header">
         <Routes>
-          
+          <Route path="/nutrition" element={<NutritionModule/>}/>
+          <Route path="/payment" element={<Payment/>}/>
           <Route path="/register" element={<UserRegister/>}  />
           <Route path="/login" element={<UserLogin/>} />
           <Route path="/admin" element={<Admin/>}/>
+          <Route path="/DietPlan" element={<DietPlan />} />
+          <Route path="/WeightLog" element={<WeightLog />} />
           <Route path="/customer" element={<Customer/>}/>
-
-          <Route path="/WeightLog" element={<WeightLog/>}  />
-
+          <Route path="/" element={<logOut/>}/>
           {/* {isLogged ? <p>Logged in</p>:<p>Not logged in</p>} */}
         </Routes>
         {/* <h1>Nutrition App</h1>
@@ -35,8 +40,11 @@ function App() {
         {isRegistered? <p>Registered</p>:<p>please register</p>}
         <button onClick={()=>dispatch(login())}>Login</button>
         {isLogged ? <p>Logged in</p>:<p>Not logged in</p>} */}
+        </header>
     </div>
+    
     </Router>
+    
   );
 }
 

@@ -11,8 +11,19 @@ nav{
   justify-content: space-around;
   align-items: center;
   min-height: 10vh;
-  background: rgb(61, 41, 58);
+  background: rgb(35, 86, 12);
   color:white
+}
+
+nav ul{
+  display: flex;
+  gap: 20px;
+  justify-content: space-between;
+  list-style: none;
+}
+nav li{
+  margin:0;
+  margin-left: 2rem;
 }
 @media (prefers-reduced-motion: no-preference) {
   .App-logo {
@@ -21,14 +32,14 @@ nav{
 }
 
 .App-header {
-  background-color: #282c34;
+  background-image: url("Nutrition_cover1.jpg"); 
   min-height: 100vh;
   display: flex;
   flex-direction: column;
   align-items: center;
   justify-content: center;
-  font-size: calc(10px + 2vmin);
-  color: white;
+  /* font-size: calc(10px + 2vmin); */
+  /* color: white; */
 }
 
 .App-link {
@@ -43,7 +54,13 @@ nav{
     transform: rotate(360deg);
   }
 }
-
+.form {
+  background-color: #9175b9;
+  border-radius: 20px;
+  box-sizing: border-box;
+  
+  
+}
 .container {
   display: flex !important;
   flex-direction: column;
@@ -53,11 +70,30 @@ nav{
   max-width: 500px;
   width: 100%;
   margin: auto;
+  
 }
 .container > form {
   width: 70%;
   border: 1px solid #dfdfdf;
   padding: 20px;
-  border-radius: 5px;
-  background: #fff;
+  border-radius: 20px;
+  background: rgb(242, 161, 85);
+}
+
+p{
+  color: red;
+}
+table {
+  font-family: arial, sans-serif;
+  border-collapse: collapse;
+  width: 100%;
+}
+ th {
+  border: 1px solid #dddddd;
+  text-align: left;
+  padding: 8px;
+}
+
+tr{
+  background-color: #dddddd;
 }
