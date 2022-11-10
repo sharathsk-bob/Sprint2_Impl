@@ -69,6 +69,7 @@ function NutritionModule() {
      
      </form>
      {/* <button onClick={getAdmin}>BUY</button> */}
+     <button onClick={Pay}>BUY</button>
     </div>
     
 

@@ -11,6 +11,7 @@ import NutritionModule from "./Components/NutritionModule";
 import Payment from "./Components/Payment";
 import DietPlan from "./Components/DietPlan";
 import WeightLog from "./Components/WeightLog";
+import PaymentGetAPI from "./Components/PaymentGetAPI";
 
 
 function App() {
@@ -25,6 +26,7 @@ function App() {
         <Routes>
           <Route path="/nutrition" element={<NutritionModule/>}/>
           <Route path="/payment" element={<Payment/>}/>
+          <Route path="/PaymentGetAPI" element={<PaymentGetAPI/>}/>
           <Route path="/register" element={<UserRegister/>}  />
           <Route path="/login" element={<UserLogin/>} />
           <Route path="/admin" element={<Admin/>}/>

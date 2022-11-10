@@ -1,0 +1,13 @@
+
+.container-payment {
+    display: flex !important;
+    flex-direction: column;
+    justify-content: left;
+    align-items: center;
+    height: 50vh;
+    max-width: 250vw;
+    width: 100%;
+    margin: auto;
+    background:rgb(220, 197, 113);
+    
+  }
