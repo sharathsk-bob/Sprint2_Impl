@@ -8,8 +8,7 @@
     width: 100%;
     margin: auto;
     padding: 40px;
-    background:rgb(134, 151, 153,.8);
-    
+    background:rgb(134, 151, 153,.8); 
   }
   .nutri-button{
     background-color: rgb(96, 96, 210);
@@ -20,6 +19,7 @@
       padding:10px;
       min-height:30px; 
       min-width: 80px;
+      
     
   }
   .nutri-button:hover {

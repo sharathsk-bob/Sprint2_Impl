@@ -3,7 +3,8 @@ import axios from 'axios';
 import {useState,useEffect} from "react";
 import { useNavigate } from "react-router-dom";
 import Payment from './Payment';
-import './nutrition.css';
+import PaymentGetAPI from './PaymentGetAPI';
+import './Payment.css';
 function NutritionModule() {
     //const [input,setInput]=useState("");
   const [weatherData,setWeatherData]=useState("");
@@ -41,11 +42,15 @@ function NutritionModule() {
     const Pay=()=>{
         history("/payment")
     }
+
+    const PayDis=()=>{
+      history("/PaymentGetAPI")
+  }
   return (
     
     <div >
         <h3>Payment</h3>
-        <form className='container'>
+        <form className='container-payment'>
         {weatherData &&(
           <React.Fragment>
             <div >
@@ -53,43 +58,15 @@ function NutritionModule() {
             <p>CreatedAt:{weatherData.created_At}</p>
             <p>UpdatedAt:{weatherData.updated_At}</p>
             <p>Discount:{weatherData.discount}</p>
-            <button onClick={Pay}>BUY</button>
-            {/* <p>{weatherData.current.feelslike_c}&deg;C</p>
-            <img src={weatherData.current.condition.icon} alt="weather"/>
-            <p>{weatherData.current.condition.text}</p>  */}
-            </div>
-            </React.Fragment >)}
-            {weatherData &&(
-            <React.Fragment>
-            <div >
-            <p>Price:{weatherData.payment}</p>
-            <p>CreatedAt:{weatherData.created_At}</p>
-            <p>UpdatedAt:{weatherData.updated_At}</p>
-            <p>Discount:{weatherData.discount}</p>
-            <button onClick={getAdmin}>BUY</button>
-            {/* <p>{weatherData.current.feelslike_c}&deg;C</p>
-            <img src={weatherData.current.condition.icon} alt="weather"/>
-            <p>{weatherData.current.condition.text}</p>  */}
-            </div>
-            </React.Fragment>)
-            }
-             {weatherData &&(
-            <React.Fragment>
-            <div >
-            <p>Price:{weatherData.payment}</p>
-            <p>CreatedAt:{weatherData.created_At}</p>
-            <p>UpdatedAt:{weatherData.updated_At}</p>
-            <p>Discount:{weatherData.discount}</p>
-            <button onClick={getAdmin}>BUY</button>
-            {/* <p>{weatherData.current.feelslike_c}&deg;C</p>
-            <img src={weatherData.current.condition.icon} alt="weather"/>
-            <p>{weatherData.current.condition.text}</p>  */}
-            </div>
-            </React.Fragment>)
+            <button >PAY</button>
+             </div>
+            </React.Fragment>
+            )
     }  
      </form>
+     <button  onClick={PayDis}>Show All Payments</button>
     </div>
-    
+  
 
   )
 }
