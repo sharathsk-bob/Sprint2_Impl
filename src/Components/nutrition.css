@@ -1,12 +1,39 @@
 .container {
     display: flex !important;
-    flex-direction: column;
+    flex-direction: row;
     justify-content: center;
     align-items: center;
-    height: 100vh;
-    max-width: 500px;
+    height: auto;
+    max-width: 800px;
     width: 100%;
     margin: auto;
-    background:rgb(113, 198, 220);
+    padding: 40px;
+    background:rgb(134, 151, 153,.8);
     
+  }
+  .nutri-button{
+    background-color: rgb(96, 96, 210);
+      top:50%;
+      color: #fff;
+      border:black; 
+      border-radius:10px; 
+      padding:10px;
+      min-height:30px; 
+      min-width: 80px;
+    
+  }
+  .nutri-button:hover {
+      background-color:#002ead;
+      transition: 0.7s;
+  }
+  .nutri-head{
+    color: #000;
+  }
+  .nutri-p{
+    color: #000;
+    font-weight: 600;
+  }
+  .nutri-div{
+    margin-left:auto ;
+    padding: 20px;
   }
