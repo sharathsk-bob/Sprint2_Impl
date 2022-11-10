@@ -8,7 +8,7 @@ function WeightLog() {
   useEffect(() => {
 
     const v = () => {axios
-      .get(`http://localhost:8020/weightLog/showWeightLog`)
+      .get(`http://localhost:8040/weightLog/showWeightLog`)
       .then((dat) => {
         setWeightLog(dat.data);
         console.log(weightLog);
