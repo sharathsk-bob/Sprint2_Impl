@@ -11,7 +11,7 @@ import NutritionModule from "./Components/NutritionModule";
 import Payment from "./Components/Payment";
 import DietPlan from "./Components/DietPlan";
 import WeightLog from "./Components/WeightLog";
-import logOut from "./Components/logOut";
+
 
 function App() {
   //const isRegistered=useSelector((state)=>state.register);
@@ -31,7 +31,7 @@ function App() {
           <Route path="/DietPlan" element={<DietPlan />} />
           <Route path="/WeightLog" element={<WeightLog />} />
           <Route path="/customer" element={<Customer/>}/>
-          <Route path="/" element={<logOut/>}/>
+          
           {/* {isLogged ? <p>Logged in</p>:<p>Not logged in</p>} */}
         </Routes>
         {/* <h1>Nutrition App</h1>
