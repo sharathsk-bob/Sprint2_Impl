@@ -9,7 +9,7 @@ function NutritionModule() {
   const [nutridata,setNutridata]=useState([]);
   const history=useNavigate();
   useEffect(()=>{
-    axios.get('http://localhost:8020/nutritionplan/',{headers:{"Content-Type" : "application/json"}})
+    axios.get('http://localhost:8040/nutritionplan/',{headers:{"Content-Type" : "application/json"}})
     .then((data)=>{
         setNutridata(data.data);  
     }).catch((error)=>setNutridata({ errorMessage: error.error}));
