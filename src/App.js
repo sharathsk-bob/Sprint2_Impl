@@ -25,7 +25,7 @@ function App() {
         <header className="App-header">
         <Routes>
           <Route path="/nutrition" element={<NutritionModule/>}/>
-          <Route path="/payment" element={<Payment/>}/>
+          <Route path='/payment/:id' element={<Payment/>}/>
           <Route path="/PaymentGetAPI" element={<PaymentGetAPI/>}/>
           <Route path="/register" element={<UserRegister/>}  />
           <Route path="/login" element={<UserLogin/>} />

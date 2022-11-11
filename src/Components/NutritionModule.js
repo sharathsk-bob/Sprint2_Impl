@@ -6,32 +6,32 @@ import Payment from './Payment';
 import './nutrition.css';
 function NutritionModule() {
     //const [input,setInput]=useState("");
-  const [weatherData,setWeatherData]=useState([]);
+  const [nutridata,setNutridata]=useState([]);
   const history=useNavigate();
   useEffect(()=>{
     axios.get('http://localhost:8020/nutritionplan/',{headers:{"Content-Type" : "application/json"}})
     .then((data)=>{
-        setWeatherData(data.data);  
-    }).catch((error)=>setWeatherData({ errorMessage: error.error}));
+        setNutridata(data.data);  
+    }).catch((error)=>setNutridata({ errorMessage: error.error}));
   },[]);
   
-    const Pay=()=>{
-        history("/payment")
+    const pay=(id)=>{
+        history(`/payment/${id}`)
     }
   return (
     <div >
-        <h1 className='nutri-head'>Nutrition Modules</h1>
+        <h1 className='nutri-head' id ='nutri-head-id'>Nutrition Modules</h1>
         <form className='container'>
-        {weatherData &&(
+        {nutridata &&(
           <React.Fragment>
-            {weatherData.map((weather)=>(
-              <div key={weather.id} className='nutri-div' >
-            <p className='nutri-p'>{weather.name}</p>
-            <p className='nutri-p'>{weather.planDiscription}</p>
-            <p className='nutri-p'>{weather.created_At}</p>
-            <p className='nutri-p'>{weather.updated_At}</p>
-            <p className='nutri-p'>{weather.price}</p>
-            <button className='nutri-button' onClick={Pay}>BUY</button>
+            {nutridata.map((nutri)=>(
+              <div key={nutri.id} className='nutri-div' >
+            <p className='nutri-p'>{nutri.name}</p>
+            <p className='nutri-p'>{nutri.planDiscription}</p>
+            <p className='nutri-p'>{nutri.created_At}</p>
+            <p className='nutri-p'>{nutri.updated_At}</p>
+            <p className='nutri-p'>{nutri.price}</p>
+            <button className='nutri-button' onClick={ ()=>pay(nutri.id)}> BUY</button>
             </div>
               
             ))}
