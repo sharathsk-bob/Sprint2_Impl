@@ -38,9 +38,10 @@ function WeightLog() {
         <tbody>
               <tr>
                 <th>{weightlog.id}</th>
+                <th>{weightlog.weight}</th>
                 <th>{weightlog.created_At}</th>
                 <th>{weightlog.updated_At}</th>
-                <th>{weightlog.weight}</th>
+                
               </tr>
         </tbody>
         ))}
