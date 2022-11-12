@@ -1,0 +1,19 @@
+{
+	"folders": [
+		{
+			"path": "../../../../New folder"
+		},
+		{
+			"path": "../../../../OneDrive/OneDrive - Capgemini/Sprint_2"
+		},
+		{
+			"path": "../../.."
+		},
+		{
+			"path": "../../../../Evalution"
+		}
+	],
+	"settings": {
+		"liveServer.settings.multiRootWorkspaceName": "Evalution"
+	}
+}

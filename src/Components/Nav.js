@@ -2,13 +2,13 @@ import React from "react";
 import { NavLink } from "react-router-dom";
 //Hello
 const Nav =(props)=> {
-  const navStyle = { color: "red" };
+  const navStyle = { color: "yellow" };
   const logOut=()=>{
     localStorage.setItem("isLoggedIn",0)
 }
   return (
     <nav>
-      <h3>Nutrition App</h3>
+      <h2>Nutrition App</h2>
       <ul style={{listStyle:"none"}}>
         <NavLink style={navStyle} to="/register">
           <li>Register</li>

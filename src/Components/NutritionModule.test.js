@@ -1,11 +1,12 @@
-import {getByTestId, render} from "@testing-library/react";
+import React from "react";
+import { ReactDOM } from "react";
 import NutritionModule from './NutritionModule';
-
+import axios from "axios";
+import {render} from "@testing-library/react";
 describe("NutritionModule Component",()=>{
     it("rendered input",()=>{
-     const{getByTestId}= render(<NutritionModule/>);
-     const nutritionModule= getByTestId('nutri-head-id');
-    expect(nutritionModule).toBeTruthy();
+     const nutri = document.getElementById('nutri-head-id');
+     expect(nutri).toBe("Nutrition Modules");
     
     });
 

@@ -9,8 +9,9 @@ function NutritionModule() {
   const [nutridata,setNutridata]=useState([]);
   const history=useNavigate();
   useEffect(()=>{
-    axios.get('http://localhost:8020/nutritionplan/',{headers:{"Content-Type" : "application/json"}})
+    axios.get('http://localhost:8082/NutritionPlan/getnutri',{headers:{"Content-Type" : "application/json"}})
     .then((data)=>{
+      console.log(data.data);
         setNutridata(data.data);  
     }).catch((error)=>setNutridata({ errorMessage: error.error}));
   },[]);
@@ -21,22 +22,24 @@ function NutritionModule() {
   return (
     <div >
         <h1 className='nutri-head' id ='nutri-head-id'>Nutrition Modules</h1>
-        <form className='container'>
+        <div className='nutri-scroll'>
+        <div className='nutri-container'>
         {nutridata &&(
           <React.Fragment>
             {nutridata.map((nutri)=>(
               <div key={nutri.id} className='nutri-div' >
-            <p className='nutri-p'>{nutri.name}</p>
-            <p className='nutri-p'>{nutri.planDiscription}</p>
-            <p className='nutri-p'>{nutri.created_At}</p>
-            <p className='nutri-p'>{nutri.updated_At}</p>
-            <p className='nutri-p'>{nutri.price}</p>
+            <p className='nutri-p-name'>{nutri.name}</p>
+            <p className='nutri-p'>{nutri.planDescription}</p>
+            <p className='nutri-p'><i>Created At :</i>{nutri.created_At}</p>
+            <p className='nutri-p'><i>Updated At :</i>{nutri.updated_At}</p>
+            <p className='nutri-p'>Price = {nutri.price}</p>
             <button className='nutri-button' onClick={ ()=>pay(nutri.id)}> BUY</button>
             </div>
               
             ))}
             </React.Fragment >)}
-     </form>
+         </div>
+      </div>
      {/* <button onClick={getAdmin}>BUY</button> */}
      {/* <button onClick={Pay}>BUY</button> */}
     </div>
