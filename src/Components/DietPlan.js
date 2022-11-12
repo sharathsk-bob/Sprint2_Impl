@@ -8,7 +8,7 @@ function DietPlan() {
   useEffect(() => {
 
     const v = () => {axios
-      .get(`http://localhost:8020/dietPlan/showPlans`)
+      .get(`http://localhost:8040/dietPlan/showPlans`)
       .then((dat) => {
         setDietPlan(dat.data);
         console.log(dietPlan);
