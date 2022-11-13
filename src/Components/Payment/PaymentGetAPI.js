@@ -7,7 +7,8 @@ import axios from "axios";
 // window.React2 = require('react');
 // console.log(window.React1 === window.React2);
 function PaymentGetAPI() {
-  const PAYMENT_GetMapping_URL = "http://localhost:8040/Payment/payment1";
+  const PAYMENT_GetMapping_URL =
+    "http://localhost:8082/Payment/showallpayments";
 
   const [getAPI, setGetAPI] = useState("");
   useEffect(() => {
@@ -39,22 +40,21 @@ function PaymentGetAPI() {
               <th scope="col">Plan Id</th>
             </tr>
           </thead>
-          
-            {getAPI &&
-              getAPI.map((getAPI) => (
-                <tbody>
-                  <tr>
-                    <th >{getAPI.id}</th>
-                    <th>{getAPI.payment}</th>
-                    <th>{getAPI.discount}</th>
-                    <th>{getAPI.created_At}</th>
-                    <th>{getAPI.updated_At}</th>
-                    <th>{getAPI.userId}</th>
-                    <th>{getAPI.planId}</th>
-                  </tr>
-                </tbody>
-              ))}
-          
+
+          {getAPI &&
+            getAPI.map((getAPI) => (
+              <tbody>
+                <tr>
+                  <th>{getAPI.id}</th>
+                  <th>{getAPI.payment}</th>
+                  <th>{getAPI.discount}</th>
+                  <th>{getAPI.created_At}</th>
+                  <th>{getAPI.updated_At}</th>
+                  <th>{getAPI.userId}</th>
+                  <th>{getAPI.planId}</th>
+                </tr>
+              </tbody>
+            ))}
         </table>
       </div>
     </div>

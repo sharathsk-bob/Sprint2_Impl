@@ -2,7 +2,7 @@ import React from 'react';
 import axios from 'axios';
 import {useState,useEffect} from "react";
 import { useNavigate } from "react-router-dom";
-import Payment from './Payment';
+import PaymentModule from "../Components/Payment/Payment";
 import './nutrition.css';
 function NutritionModule() {
     //const [input,setInput]=useState("");

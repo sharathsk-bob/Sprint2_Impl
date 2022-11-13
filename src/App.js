@@ -8,10 +8,15 @@ import UserRegister from "./Components/UserRegister";
 import Admin from "./Components/Admin";
 import Customer from "./Components/Customer";
 import NutritionModule from "./Components/NutritionModule";
-import Payment from "./Components/Payment";
+import Payment from "./Components/Payment/Payment";
 import DietPlan from "./Components/DietPlan";
 import WeightLog from "./Components/WeightLog";
-import PaymentGetAPI from "./Components/PaymentGetAPI";
+
+import PaymentUpdateForm from "./Components/Payment/PaymentUpdateForm";
+import PaymentAdmin from "./Components/Payment/PaymentAdmin";
+import PaymentGetAPI from "./Components/Payment/PaymentGetAPI";
+import PaymentAddOffer from "./Components/Payment/PaymentAddOffer";
+
 
 
 function App() {
@@ -25,8 +30,12 @@ function App() {
         <header className="App-header">
         <Routes>
           <Route path="/nutrition" element={<NutritionModule/>}/>
-          <Route path='/payment/:id' element={<Payment/>}/>
+          <Route path='/payment' element={<Payment/>}/>
           <Route path="/PaymentGetAPI" element={<PaymentGetAPI/>}/>
+          <Route path="/PaymentUpdateForm" element={<PaymentUpdateForm/>}/>
+          <Route path="/PaymentAdmin" element={<PaymentAdmin/>}/>
+          <Route path="/PaymentAddOffer" element={<PaymentAddOffer/>}/>
+          {/* <Route path="/PaymentMainPage" element={<PaymentMainPage/>}/> */}
           <Route path="/register" element={<UserRegister/>}  />
           <Route path="/login" element={<UserLogin/>} />
           <Route path="/admin" element={<Admin/>}/>
