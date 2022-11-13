@@ -126,7 +126,7 @@ function PaymentAddOffer() {
             onChange={handleChange}
             // mandatory="true"
             helperText={formErrors.userId}
-            error = {!formErrors.id ? false : true}
+            error = {!formErrors.userId ? false : true}
             
              
           />
@@ -145,7 +145,7 @@ function PaymentAddOffer() {
             value={formValues.discount}
             onChange={handleChange}
             helperText={formErrors.discount}
-            error = {!formErrors.id ? false : true}
+            error = {!formErrors.discount ? false : true}
           />
 
           <div>

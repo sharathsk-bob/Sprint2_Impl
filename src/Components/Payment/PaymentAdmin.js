@@ -140,7 +140,7 @@ function PaymentAdmin() {
               setUserId(e.target.value);
             }}
             helperText={formErrors.userId}
-            error = {!formErrors.id ? false : true}
+            error = {!formErrors.userId ? false : true}
           />
           <TextField
             margin="normal"
@@ -158,7 +158,7 @@ function PaymentAdmin() {
               
             }}
             helperText={formErrors.payment}
-            error = {!formErrors.id ? false : true}
+            error = {!formErrors.payment ? false : true}
           />
           <TextField
             margin="normal"
@@ -174,7 +174,7 @@ function PaymentAdmin() {
               setDiscount(e.target.value);
             }}
             helperText={formErrors.discount}
-            error = {!formErrors.id ? false : true}
+            error = {!formErrors.discount ? false : true}
           />
           <TextField
             margin="normal"
@@ -190,7 +190,7 @@ function PaymentAdmin() {
               setPlanId(e.target.value);
             }}
             helperText={formErrors.planId}
-            error = {!formErrors.id ? false : true}
+            error = {!formErrors.planId ? false : true}
           />
 
           <div>
