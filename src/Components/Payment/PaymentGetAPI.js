@@ -3,9 +3,6 @@ import { useState } from "react";
 import { useEffect } from "react";
 import axios from "axios";
 
-// require('react-dom');
-// window.React2 = require('react');
-// console.log(window.React1 === window.React2);
 function PaymentGetAPI() {
   const PAYMENT_GetMapping_URL =
     "http://localhost:8082/Payment/showallpayments";
@@ -19,6 +16,7 @@ function PaymentGetAPI() {
       const response = await axios.get(PAYMENT_GetMapping_URL);
       setGetAPI(response.data);
       console.log(response);
+      alert("All records displayed");
     } catch (error) {
       console.log(error);
     }

@@ -1,6 +1,5 @@
 import React from "react";
 import PaymentModule from "./Payment";
-
 import axios from "axios";
 import { useState, useEffect } from "react";
 import { Routes, Route, useNavigate } from "react-router-dom";
@@ -10,7 +9,6 @@ import "./Payment.css";
 import Box from "@mui/material/Box";
 import TextField from "@mui/material/TextField";
 import Grid from "@mui/material/Grid";
-
 import Avatar from "@mui/material/Avatar";
 import Button from "@mui/material/Button";
 import CssBaseline from "@mui/material/CssBaseline";
@@ -40,7 +38,6 @@ function PaymentAddOffer() {
   const history = useNavigate();
   const handleSubmit = (event) => {
     event.preventDefault();
-    setFormErrors(validate(formValues));
     setIsSubmit(true);
     let keys = Object.keys(formErrors);
     const data = new FormData(event.currentTarget);
@@ -52,39 +49,16 @@ function PaymentAddOffer() {
     const userId= data.get("userId")
     const discount= data.get("discount")
     axios.put(`http://localhost:8082/Payment/addoffertopayment/${userId}/${discount}`)
-    .then((data) => console.log(data.data))
+    .then((data) => {console.log(data.data);alert("Discount added")})
     .catch((error) => console.log(error));
+    // console.log(formErrors);
+   
   };
 
   const handleChange= (e) => {
     console.log(e);
     const { name, value } = e.target;
     setFormValues({ ...formValues, [name]: value });
-    console.log(formValues);
-
-  };
-  const validate = (values) => {
-    const errors = {};
-    const regex = /^[A-Za-z]+[0-9]$/;
-    if (!values.userId) {
-        errors.userId = "User Id is required!";
-      }else if (!regex.test(values.userId)) {
-        errors.userId = "Discount can't be provided to this user";
-      }
-  
-   if (!values.discount) {
-        errors.discount = "Value is required";
-      } 
-      // else if (values.discount.length > 3) {
-      //   errors.discount = "Discount must be less than 4 characters";
-      // } else if (values.discount.length < 0) {
-      //   errors.discount = "Discount value is invalid";
-      // }
-      else if(!isNaN(+values.discount)){
-        errors.discount="Enter a valid number";
-      }
-   
-    return errors;
   };
 
 
@@ -112,9 +86,10 @@ function PaymentAddOffer() {
           </Typography>
         </Box>
         <Box component="form" onSubmit={handleSubmit} noValidate sx={{ mt: 1 }}>
+          <form>
           <TextField
             margin="normal"
-            required
+            // required
             fullWidth
             id="userId"
             label="User Id"
@@ -124,18 +99,12 @@ function PaymentAddOffer() {
             // autoComplete="email"
             autoFocus
             onChange={handleChange}
-            // mandatory="true"
-            helperText={formErrors.userId}
-            error = {!formErrors.userId ? false : true}
-            
-             
+            required  
           />
           
-         
-
           <TextField
             margin="normal"
-            required
+            // required
             fullWidth
             id="discount"
             label="Discount"
@@ -144,10 +113,9 @@ function PaymentAddOffer() {
             mandatory= "true"
             value={formValues.discount}
             onChange={handleChange}
-            helperText={formErrors.discount}
-            error = {!formErrors.discount ? false : true}
+            required
           />
-
+          
           <div>
             <Button
               variant="contained"
@@ -159,6 +127,7 @@ function PaymentAddOffer() {
             <br></br>
       <br></br>
           </div>
+          </form>
         </Box>
       </Container>
      

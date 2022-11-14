@@ -1,6 +1,6 @@
 import React from "react";
 import PaymentModule from "./Payment";
-import axios from "axios";
+import axios from 'axios';
 import { useState, useEffect } from "react";
 import { Routes, Route, useNavigate } from "react-router-dom";
 import Payment from "./Payment";
@@ -32,7 +32,7 @@ const theme = createTheme();
 
 function PaymentUpdateForm() {
   const initialValues = { id:"",userId: "", payment: "", discount: "", planId: ""};
-  const [formValues, setFormValues] = useState("");
+  const [formValues, setFormValues] = useState(initialValues);
   const [formErrors, setFormErrors] = useState({});
   const [isSubmit, setIsSubmit] = useState(false);
 
@@ -43,6 +43,7 @@ function PaymentUpdateForm() {
     // }
     const { name, value } = e.target;
     setFormValues({ ...formValues, [name]: value });
+    setFormErrors(validate(formValues));
     console.log(formValues);
     
   };
@@ -50,8 +51,9 @@ function PaymentUpdateForm() {
   const handleSubmit = (e) => {
     e.preventDefault();
     // setFormErrors(validate(formValues));
-    setFormErrors(validate(formValues));
-    setIsSubmit(true);
+    // setFormErrors(validate(formValues));
+   
+    console.log(formErrors);
     let keys = Object.keys(formErrors);
 
     if (keys.length === 0) {
@@ -62,8 +64,9 @@ function PaymentUpdateForm() {
           JSON.stringify(formValues),
           { headers: { "Content-Type": "application/json" } }
         )
-        .then((data) => console.log(data.data))
+        .then((data) => {console.log(data.data);alert("Data updated successfully")})
         .catch((error) => console.log(error));
+        setIsSubmit(true);
     } else {
       console.log("Errors Present");
     }
@@ -71,10 +74,11 @@ function PaymentUpdateForm() {
   };
   const validate = (values) => {
     const errors = {};
-    const regex = /^[A-Za-z]+[0-9]$/;
+    const regex = /^[A-Za-z]{2}[0-9]+$/;
+    const numbers = /^[0-9]+$/;
     if (!values.id) {
       errors.id = "ID is required!";
-    }else if (!isNaN(+values.id)) {
+    }else if ((!numbers.test(values.id))) {
       errors.id = "This is not a valid ID format!";
     }
 
@@ -83,12 +87,12 @@ function PaymentUpdateForm() {
       }else if (!regex.test(values.userId)) {
         errors.userId = "This is not a valid User Id format!";
       }
-    if (!values.amount) {
-      errors.amount = "Value is required";
-    } else if (values.amount.length < 3) {
-      errors.amount = "Value must be more than 4 digits";
-    } else if (values.amount.length > 6) {
-      errors.amount = "Value cannot exceed more than 6 digits";
+    if (!values.payment) {
+      errors.payment = "Value is required";
+    } else if (values.payment.length < 3) {
+      errors.payment = "Value must be more than 4 digits";
+    } else if (values.payment.length > 6) {
+      errors.payment = "Value cannot exceed more than 6 digits";
     }
    if (!values.discount) {
         errors.discount = "Value is required";
@@ -154,12 +158,12 @@ function PaymentUpdateForm() {
           <TextField
           
             margin="normal"
-            required
+            // required
             fullWidth
             id="user id"
             label="User Id"
             name="userId"
-            mandatory="true"
+            // mandatory="true"
             value={formValues.userId}
             // autoComplete="email"
             autoFocus
@@ -170,29 +174,29 @@ function PaymentUpdateForm() {
           <TextField
           
             margin="normal"
-            required
+            // required
             fullWidth
-            id="amount"
-            label="Amount"
+            id="payment"
+            label="payment"
             name="payment"
-            mandatory= "true"
+            // mandatory= "true"
             // autoComplete="email"
             autoFocus
-            value={formValues.amount}
+            value={formValues.payment}
             onChange={handleChange}
-            helperText={formErrors.amount}
-            error = {!formErrors.amount ? false : true}
+            helperText={formErrors.payment}
+            error = {!formErrors.payment ? false : true}
           />
           <TextField
           
             margin="normal"
-            required
+            // required
             fullWidth
             id="discount"
             label="Discount"
             name="discount"
             autoFocus
-            mandatory="true"
+            // mandatory="true"
             value={formValues.discount}
             onChange={handleChange}
             helperText={formErrors.discount}
@@ -201,13 +205,13 @@ function PaymentUpdateForm() {
           <TextField
           
             margin="normal"
-            required
+            // required
             fullWidth
             id="planId"
             label="Plan ID"
             name="planId"
             autoFocus
-            mandatory="true"
+            // mandatory="true"
             value={formValues.planId}
             onChange={handleChange}
             helperText={formErrors.planId}
@@ -216,7 +220,7 @@ function PaymentUpdateForm() {
           <br></br>
 
           <div>
-            <Button
+            <Button data-testid="delete"
               variant="contained"
               aria-label="outlined button"
               onClick={handleSubmit}

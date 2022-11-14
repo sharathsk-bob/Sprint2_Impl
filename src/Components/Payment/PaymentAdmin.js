@@ -1,6 +1,5 @@
 import React from "react";
 import PaymentModule from "./Payment";
-
 import axios from "axios";
 import { useState, useEffect } from "react";
 import { Routes, Route, useNavigate } from "react-router-dom";
@@ -10,7 +9,6 @@ import "./Payment.css";
 import Box from "@mui/material/Box";
 import TextField from "@mui/material/TextField";
 import Grid from "@mui/material/Grid";
-
 import Avatar from "@mui/material/Avatar";
 import Button from "@mui/material/Button";
 import CssBaseline from "@mui/material/CssBaseline";
@@ -44,8 +42,9 @@ function PaymentAdmin() {
 
   const postData = (e) => {
     e.preventDefault();
-    setFormErrors(validate(formValues));
+    // setFormErrors(validate(formValues));
     setIsSubmit(true);
+    
     axios
       .post("http://localhost:8082/Payment/paythepayment", {
         payment: payment,
@@ -53,7 +52,7 @@ function PaymentAdmin() {
         userId: userId,
         planId: planId,
       })
-      .then((response) => console.log("posting data", response))
+      .then((response) => {console.log("posting data", response);alert("Payment Successful"); })
       .catch((error) => console.log(error));
   };
   // const navigate = useNavigate();
@@ -64,6 +63,7 @@ function PaymentAdmin() {
  
     const { name, value } = event.target;
     setFormValues({ ...formValues, [name]: value });
+    setFormErrors(validate(formValues));
     console.log(formValues);
     console.log(event);
   };
@@ -139,8 +139,10 @@ function PaymentAdmin() {
             onChange={(e) => {
               setUserId(e.target.value);
             }}
-            helperText={formErrors.userId}
             error = {!formErrors.userId ? false : true}
+                 
+            helperText={formErrors.userId}
+            
           />
           <TextField
             margin="normal"
@@ -188,6 +190,7 @@ function PaymentAdmin() {
             mandatory="true"
             onChange={(e) => {
               setPlanId(e.target.value);
+              console.log(e.target.value);
             }}
             helperText={formErrors.planId}
             error = {!formErrors.planId ? false : true}
@@ -198,6 +201,7 @@ function PaymentAdmin() {
               variant="contained"
               aria-label="outlined button"
               onClick={postData}
+              
             >
               ADD NEW USER PAYMENT{" "}
             </Button>

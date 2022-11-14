@@ -1,4 +1,3 @@
-
 import * as React from 'react';
 import Accordion from '@mui/material/Accordion';
 import AccordionSummary from '@mui/material/AccordionSummary';
@@ -25,10 +24,10 @@ export default function SimpleAccordion1() {
         </AccordionSummary>
         <AccordionDetails>
         <ButtonGroup variant="text" aria-label="text button group">
-        <Button onClick={() =>navigate('/PaymentAdmin')}>Add new user's payment</Button>
-        <Button onClick={() => navigate('/PaymentUpdateForm')}>Update Existing User Payment Details</Button>
-        <Button onClick={() =>navigate('/PaymentGetAPI')}>Show all payments</Button>
-        <Button onClick={() =>navigate("/PaymentAddOffer")}>Add Offer</Button>
+        <Button  data-testid="button" onClick={() =>navigate('/PaymentAdmin')}>Add new user's payment</Button>
+        <Button data-testid="update" onClick={() => navigate('/PaymentUpdateForm')}>Update Existing User Payment Details</Button>
+        <Button data-testid="show" onClick={() =>navigate('/PaymentGetAPI')}>Show all payments</Button>
+        <Button data-testid="add" onClick={() =>navigate("/PaymentAddOffer")}>Add Offer</Button>
       </ButtonGroup>
       
         </AccordionDetails>
@@ -37,5 +36,3 @@ export default function SimpleAccordion1() {
     
   );
 }
-
-
