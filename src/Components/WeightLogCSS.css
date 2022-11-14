@@ -1,25 +1,54 @@
-#Hey {
-    font-family: Arial, Helvetica, sans-serif;
-    border-collapse: collapse;
-    width: 100%;
-  }
-  
-  #Hey td, #Hey th {
-    border: 1px solid rgb(12, 5, 5);
-    padding: 8px;
-  }
-  
-  #Hey tr:nth-child(even){background-color: #050404;}
-  
-  #Hey tr:hover
-   {
-    background-color: rgb(43, 100, 44);
+.weight-container {
+  display: flex !important;
+  flex-direction: row;
+  justify-content: center;
+  align-items: center;
+  height: auto;
+  max-width: auto;
+  width: auto;
+  margin: auto;
+  padding: 40px;
+   
 }
+  .weight-scroll{
+  height: 400px; 
+  width: 800px; 
+  overflow-y: hidden;
+  white-space: nowrap;
+  background:rgb(134, 151, 153,.8);
+  margin: 4px, 4px;
+  padding: 4px;
+}
+.weight-button{
+  background-color: rgb(96, 96, 210);
+    top:50%;
+    color: #fff;
+    border:black; 
+    border-radius:10px; 
+    padding:10px;
+    min-height:30px; 
+    min-width: 80px;
+    
   
-  #Hey th {
-    padding-top: 12px;
-    padding-bottom: 12px;
-    text-align: center;
-    background: transparent;
-    color: rgb(5, 3, 3);
-  }
+}
+.weight-button:hover {
+    background-color:#030305;
+    transition: 0.7s;
+}
+.weight-head{
+  color: #000;
+  font-weight: 1000;
+}
+.weight-p{
+  color: rgb(0, 0, 0);
+  font-weight: 600;
+}
+.weight-div{
+  margin-left:auto ;
+  padding: 20px;
+}
+.weight-p-name{
+color: rgb(5, 6, 5);
+font-weight: 900;
+font-size: 25px; 
+}
