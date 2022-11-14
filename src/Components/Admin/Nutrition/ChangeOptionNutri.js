@@ -1,7 +1,7 @@
 import React from 'react'
 import { Link } from 'react-router-dom'
 
-const OptionPage = () => {
+const ChangeOptionNutri = () => {
   return (
     <div className="container overflow-hidden text-center">
     <div className="card align-middle shadow-lg p-3 mt-5 mb-5 bg-body rounded">
@@ -13,12 +13,18 @@ const OptionPage = () => {
       <div id="list-example" className="list-group">
       {/* <div className="card-title"> */}
       <div className="card shadow-lg p-2 mb-1 bg-body rounded">
-        <Link className="list-group-item " to="/ChangeOptionNutri">Update Nutrition Plans</Link>
+        <Link className="list-group-item " to="/AddNutritionPlan">Add Nutrition Plans</Link>
         </div>
       {/* </div> */}
       {/* <div className="card-title"> */}
       <div className="card shadow-lg p-2 mb-2 bg-body rounded">
-        <Link className="list-group-item " to="/ChangeOptionDiet">Update Diet Plans</Link>
+        <Link className="list-group-item " to="/NutritionPlanDelete">Delete Nutrition Plans</Link>
+        </div>
+      <div className="card shadow-lg p-2 mb-2 bg-body rounded">
+        <Link className="list-group-item " to="/NutritionPlanUpdate">Update Nutrition Plans</Link>
+        </div>
+        <div className="card shadow-lg p-2 mb-2 bg-body rounded">
+        <Link className="list-group-item " to="/OptionPage">Back</Link>
         </div>
       {/* </div> */}
     </div>
@@ -28,4 +34,4 @@ const OptionPage = () => {
   )
 }
 
-export default OptionPage
+export default ChangeOptionNutri

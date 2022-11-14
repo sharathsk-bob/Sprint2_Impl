@@ -12,7 +12,7 @@ function DietPlan() {
   useEffect(() => {
 
     const v = () => {axios
-      .get(`http://localhost:8082//capg/userinterface/diets`)
+      .get(`http://localhost:8082/Diets/listdiets`)
       .then((dat) => {
         setDietPlan(dat.data);
         console.log(dietPlan.data);

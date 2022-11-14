@@ -1,7 +1,7 @@
 import React from 'react'
 import { Link } from 'react-router-dom'
 
-const ChangeOption = () => {
+const ChangeOptionDiet = () => {
   return (
     <div className="container overflow-hidden text-center">
     <div className="card align-middle shadow-lg p-3 mt-5 mb-5 bg-body rounded">
@@ -34,5 +34,5 @@ const ChangeOption = () => {
   )
 }
 
-export default ChangeOption
+export default ChangeOptionDiet
 
