@@ -98,7 +98,7 @@ const [formValues, setFormValues] = useState(initialValues);
   };
 
   return (
-    <div className="container">
+    <div className="container" data-testid="login">
       {/* {Object.keys(formErrors).length === 0 && isSubmit ? (
         <div className="ui message success">Signed in successfully</div>
       ) : (
@@ -114,6 +114,7 @@ const [formValues, setFormValues] = useState(initialValues);
             <input
               type="text"
               name="loginName"
+              data-testid="inputfield"
               placeholder="loginName"
               value={formValues.loginName}
               onChange={handleChange}
@@ -125,6 +126,7 @@ const [formValues, setFormValues] = useState(initialValues);
             <input
               type="text"
               name="email"
+              data-testid="emailfield"
               placeholder="Email"
               value={formValues.email}
               onChange={handleChange}
@@ -136,6 +138,7 @@ const [formValues, setFormValues] = useState(initialValues);
             <input
               type="password"
               name="password"
+              data-testid="passfield"
               placeholder="Password"
               value={formValues.password}
               onChange={handleChange}

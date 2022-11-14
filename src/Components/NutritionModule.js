@@ -23,15 +23,15 @@ function NutritionModule() {
         history(`/payment`)
     }
   return (
-    <div >
-        <h1 className='nutri-head' id ='nutri-head-id'>Nutrition Modules</h1>
+    <div data-testid="nutritiontest" >
+        <h1 data-testid="headtag" className='nutri-head' id ='nutri-head-id'>Nutrition Modules</h1>
         <div className='nutri-scroll'>
         <div className='nutri-container'>
         {nutridata &&(
           <React.Fragment>
             {nutridata.map((nutri)=>(
               <div key={nutri.id} className='nutri-div' >
-            <p className='nutri-p-name'>{nutri.name}</p>
+            <p  className='nutri-p-name'>{nutri.name}</p>
             <p className='nutri-p'>{nutri.planDescription}</p>
             <p className='nutri-p'><i>Created At :</i>{nutri.created_At}</p>
             <p className='nutri-p'><i>Updated At :</i>{nutri.updated_At}</p>

@@ -97,6 +97,7 @@ const [formValues, setFormValues] = useState(initialValues);
             <input
               type="text"
               name="loginName"
+              data-testid="loginname"
               placeholder="loginName"
               value={formValues.loginName}
               onChange={handleChange}
@@ -108,6 +109,7 @@ const [formValues, setFormValues] = useState(initialValues);
             <input
               type="text"
               name="email"
+              data-testid="email"
               placeholder="Email"
               value={formValues.email}
               onChange={handleChange}
@@ -119,6 +121,7 @@ const [formValues, setFormValues] = useState(initialValues);
             <input
               type="password"
               name="password"
+              data-testid="password"
               placeholder="Password"
               value={formValues.password}
               onChange={handleChange}
@@ -130,6 +133,7 @@ const [formValues, setFormValues] = useState(initialValues);
             <input
               type="text"
               name="role"
+              data-testid="role"
               placeholder="Role"
               value={formValues.role}
               onChange={handleChange}
