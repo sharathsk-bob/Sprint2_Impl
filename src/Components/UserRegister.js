@@ -21,7 +21,7 @@ const [formValues, setFormValues] = useState(initialValues);
   };
   //const dis1=()=>{dispatch(register())};
   const fetchProducts = async () =>{
-    await axios.post('http://localhost:8020/capg/userinterface/users', JSON.stringify(formValues),{headers:{"Content-Type" : "application/json"}}).then((data)=>console.log(data.data)).catch((error)=>console.log(error));
+    await axios.post('http://localhost:8082/capg/userinterface/users', JSON.stringify(formValues),{headers:{"Content-Type" : "application/json"}}).then((data)=>console.log(data.data)).catch((error)=>console.log(error));
   }
  
   // function handleClick() {
@@ -140,6 +140,9 @@ const [formValues, setFormValues] = useState(initialValues);
           <button className="fluid ui button blue" onClick={fetchProducts}>Submit</button>
           {/* <button onClick={()=>{dispatch(register())}}>test</button>
           {isRegistered? <p>Registered</p>:<p>please register</p>}  */}
+          {Object.keys(formErrors).length === 0 && isSubmit ? (
+        <div className="ui message success">Signed in successfully</div>
+      ) : null}
         </div>
       </form>
       

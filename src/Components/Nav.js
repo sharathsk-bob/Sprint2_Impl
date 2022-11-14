@@ -17,16 +17,16 @@ const Nav =(props)=> {
           <li>Login</li>
 
         </NavLink>
-        <NavLink style={navStyle} to="/" onClick={logOut}>
+        {/* <NavLink style={navStyle} to="/" onClick={logOut}>
           <li>logOut</li>
         </NavLink>
-        
+         */}
         {/* <NavLink style={navStyle} to="/DietPlan" >
           <li>DietPlan</li>
         </NavLink> */}
-         <NavLink style={navStyle} to="/OptionPage" >
+         {/* <NavLink style={navStyle} to="/OptionPage" >
           <li>Admin</li>
-        </NavLink>
+        </NavLink> */}
       
         
         {/* <NavLink style={navStyle} to="/WeightLog" >

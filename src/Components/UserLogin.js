@@ -38,7 +38,7 @@ const [formValues, setFormValues] = useState(initialValues);
         localStorage.setItem("isLoggedIn",true);
         isLogged=true;
         if(data.data[i].role==="Admin"){
-          history("/admin");
+          history("/OptionPage");
         }else if(data.data[i].role==="Customer"){
           history("/customer");
         }else{

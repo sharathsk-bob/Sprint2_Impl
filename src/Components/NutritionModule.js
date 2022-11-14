@@ -20,7 +20,7 @@ function NutritionModule() {
   },[]);
   
     const pay=(id)=>{
-        history(`/payment/${id}`)
+        history(`/payment`)
     }
   return (
     <div >

@@ -20,6 +20,9 @@ const OptionPage = () => {
       <div className="card shadow-lg p-2 mb-2 bg-body rounded">
         <Link className="list-group-item " to="/ChangeOptionDiet">Update Diet Plans</Link>
         </div>
+        <div className="card shadow-lg p-2 mb-2 bg-body rounded">
+        <Link className="list-group-item " to="/logout">logout</Link>
+        </div>
       {/* </div> */}
     </div>
     </div>
