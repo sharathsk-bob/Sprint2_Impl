@@ -28,6 +28,7 @@ import PaymentUpdateForm from "./Components/Payment/PaymentUpdateForm";
 import PaymentAdmin from "./Components/Payment/PaymentAdmin";
 import PaymentGetAPI from "./Components/Payment/PaymentGetAPI";
 import PaymentAddOffer from "./Components/Payment/PaymentAddOffer";
+import PaymentCustomer from "./Components/Payment/PaymentCustomer";
 
 
 // import OptionsAvailable from "./Components/OptionsAvailable";
@@ -50,6 +51,7 @@ function App() {
           <Route path="/PaymentUpdateForm" element={<PaymentUpdateForm/>}/>
           <Route path="/PaymentAdmin" element={<PaymentAdmin/>}/>
           <Route path="/PaymentAddOffer" element={<PaymentAddOffer/>}/>
+          <Route path="/PaymentCustomer" element={<PaymentCustomer/>}/>
           {/* <Route path="/PaymentMainPage" element={<PaymentMainPage/>}/> */}
           <Route path="/register" element={<UserRegister/>}  />
           <Route path="/login" element={<UserLogin/>} />
