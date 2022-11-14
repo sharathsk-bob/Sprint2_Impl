@@ -20,39 +20,28 @@ function WeightLog() {
   }, []);
   const history=useNavigate();
   const select=(id)=>{
-    history(`/DietPlanAdmin`)
+    history(`/Payment`)
 }
 
   return (
     <div>
-      <h1>Weight Logs</h1>
-        <div id="hey">
-            <table>
-              <thead>
-              <tr>
-                <th scope="col">Id</th>
-                <th scope="col">Weight</th>
-                <th scope="col">created_At</th>
-                <th scope="col">updated_At</th>
-              </tr>
-              </thead>
-          {weightLog &&
-          weightLog.map((weightlog) => (
-        //   <div key={dietplan} className='tile'>
-        //     <DietPlanView dietplan={dietplan} />
-        //   </div>
-        <tbody>
-              <tr>
-                <th>{weightlog.id}</th>
-                <th>{weightlog.weight}</th>
-                <th>{weightlog.created_At}</th>
-                <th>{weightlog.updated_At}</th> 
-              </tr>
-              <button className='weight-button' onClick={ ()=>select(weightlog.id)}> Add</button>
-        </tbody>
-        ))}
-       
-            </table>
+      <h1 className='weight-head' id ='weight-head-id'>WeightLog</h1>
+        <div className='weight-scroll'>
+        <div className='weight-container'>
+        {weightLog &&(
+          <React.Fragment>
+            {weightLog.map((Weightlog)=>(
+              <div key={Weightlog.id} className='weight-div' >
+            <p className='Weightlog-p-name'><i>Weight:</i>{Weightlog.weight}</p>
+            <p className='Weightlog-p'><i>Created_At:</i>{Weightlog.created_At}</p>
+            <p className='Weightlog-p'><i>Updated_At:</i>{Weightlog.updated_At}</p>
+            <button className='Weightlog-button' onClick={ ()=>select(Weightlog.id)}> NEXT</button>
+            </div>
+              
+            ))}
+            </React.Fragment >)}
+         </div>
+      </div>
             <div className="card shadow-lg p-2 mb-2 bg-body rounded">
         <Link className="list-group-item " to="/DietPlan">Back to DietPlan</Link>
         </div>
@@ -61,7 +50,7 @@ function WeightLog() {
         </div>
         </div>
         
-    </div>
+    // </div>
   );
 }
 

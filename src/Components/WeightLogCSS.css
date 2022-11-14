@@ -32,7 +32,7 @@
   
 }
 .weight-button:hover {
-    background-color:#030305;
+    background-color:#002ead;
     transition: 0.7s;
 }
 .weight-head{
@@ -52,3 +52,4 @@ color: rgb(5, 6, 5);
 font-weight: 900;
 font-size: 25px; 
 }
+

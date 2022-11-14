@@ -19,7 +19,7 @@ const DietPlanDelete = () => {
   const onSubmit = async (e) => {
     e.preventDefault();
     await axios.delete(
-      `http://localhost:8082/Diet/deldiet/${input}`
+      `http://localhost:8082/capg/userinterface/diets/${input}`
     );
     console.log("Removed");
     alert("Successfully Deleted");
@@ -36,8 +36,8 @@ const DietPlanDelete = () => {
     <h2 class="card-header">Remove Diet Plan</h2>
 
     {/* Form to Add Plan */}
-    <div className="card align-middle shadow-lg p-3 mb-5 bg-body rounded">
-        <div className="align-self-center shadow-lg p-3 mb-5 bg-body rounded">
+    {/* <div className="card align-middle shadow-lg p-3 mb-5 bg-body rounded">
+        <div className="align-self-center shadow-lg p-3 mb-5 bg-body rounded"> */}
             <form className="was-validated " onSubmit={(e) => onSubmit(e)}>
               <div className="mb-3">
                 {/* <label htmlFor="exampleInputEmail1" className="form-label">
@@ -67,9 +67,9 @@ const DietPlanDelete = () => {
             </form>
             
           
-        </div>
+        {/* </div>
         
-      </div>
+      </div> */}
       </div>
     </div>
     </div>

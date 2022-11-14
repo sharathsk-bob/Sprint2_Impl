@@ -12,7 +12,7 @@ function DietPlan() {
   useEffect(() => {
 
     const v = () => {axios
-      .get(`http://localhost:8082/Diets/listdiets`)
+      .get(`http://localhost:8082//capg/userinterface/diets`)
       .then((dat) => {
         setDietPlan(dat.data);
         console.log(dietPlan.data);
@@ -27,48 +27,31 @@ function DietPlan() {
 
   return (
     <div>
-      <h2>Diet Plans</h2>
-        <div>
-        <table id = "Hello">
-              <thead>
-              <tr>
-                <th scope="col">Id</th>
-                <th scope="col">CarbsRatio</th>
-                <th scope="col">FoodType</th>
-                <th scope="col">ProteinRatio</th>
-                <th scope="col">FatRatio</th>
-                <th scope="col">Slots</th>
-                <th scope="col">Total</th>
-                <th scope="col">Choose</th>
-              </tr>
-              </thead>
-          {dietPlan &&
-          dietPlan.map((dietplan) => (
-        //   <div key={dietplan} className='tile'>
-        //     <DietPlanView dietplan={dietplan} />
-        //   </div>
-        <tbody>
-              <tr>
-                <th>{dietplan.id}</th>
-                <th>{dietplan.slots}</th>
-                <th>{dietplan.foodType}</th>
-                <th>{dietplan.proteinRatio}</th>
-                <th>{dietplan.fatRatio}</th>
-                <th>{dietplan.carbsRatio}</th>
-                <th>{dietplan.total}</th>
-                <th> <button className='diet-button' onClick={ ()=>select(dietplan.id)}> BUY</button></th>
-              </tr>
-        </tbody>
-        
-        ))}
-       
-            </table>
+     <h1 className='diet-head' id ='diet-head-id'>Diet Plans</h1>
+        <div className='diet-scroll'>
+        <div className='diet-container'>
+        {dietPlan &&(
+          <React.Fragment>
+            {dietPlan.map((dietplan)=>(
+              <div key={dietplan.id} className='diet-div' >
+            <p className='dietplan-p-name'><i>Slots:</i>{dietplan.slots}</p>
+            <p className='dietplan-p'><i>Food Type:</i>{dietplan.foodType}</p>
+            <p className='dietplan-p'><i>Protein Ratio:</i>{dietplan.proteinRatio}</p>
+            <p className='dietplan-p'><i>Fat Ratio:</i>{dietplan.fatRatio}</p>
+            <p className='dietplan-p'>Carbs Ratio: {dietplan.carbsRatio}</p>
+            <p className='dietplan-p'>Total: {dietplan.total}</p>
+            <button className='dietplan-button' onClick={ ()=>select(dietplan.id)}> BUY</button>
+            </div>
+              
+            ))}
+            </React.Fragment >)}
+         </div>
+      </div>
             <div className="card shadow-lg p-2 mb-2 bg-body rounded">
         <Link className="list-group-item " to="/Admin_1">Back</Link>
         </div>
         </div>
-        
-    </div>
+    // </div>
   );
 }
 
