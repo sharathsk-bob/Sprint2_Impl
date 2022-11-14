@@ -11,6 +11,7 @@ function UserRegister() {
 const [formValues, setFormValues] = useState(initialValues);
   const [formErrors, setFormErrors] = useState({});
   const [isSubmit, setIsSubmit] = useState(false);
+  const [response, setResponse] = useState();
   const dispatch=useDispatch();
   const isRegistered=useSelector((state)=>state.register);
 
@@ -19,35 +20,18 @@ const [formValues, setFormValues] = useState(initialValues);
     const { name, value } = e.target;
     setFormValues({ ...formValues, [name]: value });
   };
-  //const dis1=()=>{dispatch(register())};
+
   const fetchProducts = async () =>{
-    await axios.post('http://localhost:8082/capg/userinterface/users', JSON.stringify(formValues),{headers:{"Content-Type" : "application/json"}}).then((data)=>console.log(data.data)).catch((error)=>console.log(error));
+    await axios.post('http://localhost:8082/capg/userinterface/users', JSON.stringify(formValues),{headers:{"Content-Type" : "application/json"}})
+    .then((data)=>{console.log(data.data);setResponse(data.data);}).catch((error)=>{console.log(error);setResponse(error.response.data.errorMessage);});
   }
  
-  // function handleClick() {
-    
-  //   fetch('http://localhost:8020/capg/userinterface/users', {  
-
-  //     method: 'POST', 
-  //     mode: 'no-cors', 
-  //     body: JSON.stringify(formValues) 
-
-  //   })
-  //   //dis1();
-  // }
+  
   const handleSubmit = (e) => {
     e.preventDefault();
     setFormErrors(validate(formValues));
     setIsSubmit(true);
   };
-  // const handleSearch=()=>{
-  //   //var errorMessage;
-  //   axios
-  //   .get(
-  //     `http://localhost:8020/user/`
-  //   )
-
-  // };
 
   useEffect(() => {
     console.log(formErrors);
@@ -76,7 +60,7 @@ const [formValues, setFormValues] = useState(initialValues);
     }
     if(!values.role){
       errors.role="Role is required!";
-    }else if(values.role!="Admin" || values.role!="Customer"){
+    }else if(!values.role==="Admin" || !values.role==="Customer"){
       errors.role="Role should be either Admin or Customer!";
     }
     return errors;
@@ -84,11 +68,7 @@ const [formValues, setFormValues] = useState(initialValues);
 
   return (
     <div className="container">
-      {/* {Object.keys(formErrors).length === 0 && isSubmit ? (
-        <div className="ui message success">Signed in successfully</div>
-      ) : (
-        <pre>{JSON.stringify(formValues, undefined, 2)}</pre>
-      )} */}
+  
 
       <form onSubmit={handleSubmit}>
         <h1>Register Form</h1>
@@ -144,11 +124,12 @@ const [formValues, setFormValues] = useState(initialValues);
           <p>{formErrors.role}</p>
 
           <button className="fluid ui button blue" onClick={fetchProducts}>Submit</button>
-          {/* <button onClick={()=>{dispatch(register())}}>test</button>
-          {isRegistered? <p>Registered</p>:<p>please register</p>}  */}
           {Object.keys(formErrors).length === 0 && isSubmit ? (
-        <div className="ui message success">Signed in successfully</div>
-      ) : null}
+        <div className="ui message success">{response}</div>
+      ) : (
+        <pre>{response}</pre>
+      )}
+         
         </div>
       </form>
       

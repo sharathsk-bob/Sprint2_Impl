@@ -8,48 +8,43 @@ import Form from 'react-bootstrap/Form';
 import { login} from "../actions";
 import { render } from 'react-dom';
 import Nav from './Nav';
-//import state from "../Store";
 
-//import axios from 'axios';
 function UserLogin() {
   const history=useNavigate();
   const initialValues={loginName:"",email:"",password:""};
 const [formValues, setFormValues] = useState(initialValues);
   const [formErrors, setFormErrors] = useState({});
   const [isSubmit, setIsSubmit] = useState(false);
-  var isLogged=useSelector((state)=>state.login);
-  const dispatch=useDispatch();
-  const [isLoggedIn,setisLoggedIn]=useState(false);
+  const [response, setResponse] = useState();
 
-  localStorage.setItem("isLoggedIn",false);
+  const [isLogged,setIsLogged]=useState(false);
+ 
   const handleChange = (e) => {
     const { name, value } = e.target;
     setFormValues({ ...formValues, [name]: value });
   };
-  //const dis1=()=>{dispatch(register())};
+
   const fetchUsers = async() =>{
     await axios.get('http://localhost:8082/capg/userinterface/users',{headers:{"Content-Type" : "application/json"}}).then((data)=>{
     //let num=[0];
+    setResponse(data.data);
     for(let i=0;i<data.data.length;i++){
-      if(data.data[i].email==formValues.email && data.data[i].password==formValues.password && data.data[i].loginName==formValues.loginName ){
+      if(data.data[i].email===formValues.email && data.data[i].password===formValues.password && data.data[i].loginName===formValues.loginName ){
         console.log("Logged In");
-        //dispatch(login());
-        localStorage.setItem("isLoggedIn",true);
-        isLogged=true;
+        setIsLogged(true);
         if(data.data[i].role==="Admin"){
           history("/OptionPage");
         }else if(data.data[i].role==="Customer"){
           history("/customer");
         }else{
-          isLogged=false;
-          setisLoggedIn=true;
-          localStorage.setItem("isLogged",false);
+          setIsLogged(false);
+        
         }
         break;
       }else{
         validate(formValues);
       }
-    }}).catch((error)=>console.log(error));
+    }}).catch((error)=>{console.log(error);setResponse(error.response.data.errorMessage);});
   }
   //console.log(fetchUsers);
   const handleSubmit = (e) => {
@@ -57,17 +52,9 @@ const [formValues, setFormValues] = useState(initialValues);
     setFormErrors(validate(formValues));
     setIsSubmit(true);
   };
-  // const handleSearch=()=>{
-  //   //var errorMessage;
-  //   axios
-  //   .get(
-  //     `http://localhost:8020/user/`
-  //   )
-
-  // };
+ 
 
   useEffect(() => {
-    //const loginState=localStorage.getItem("isLoggedIn");
     console.log(formErrors);
     if (Object.keys(formErrors).length === 0 && isSubmit) {
       console.log(formValues);
@@ -99,12 +86,7 @@ const [formValues, setFormValues] = useState(initialValues);
 
   return (
     <div className="container" data-testid="login">
-      {/* {Object.keys(formErrors).length === 0 && isSubmit ? (
-        <div className="ui message success">Signed in successfully</div>
-      ) : (
-        <pre>{JSON.stringify(formValues, undefined, 2)}</pre>
-      )} */}
-
+     
       <form className='form' onSubmit={handleSubmit}>
         <h1>Login Form</h1>
         <div className="ui divider"></div>
@@ -147,7 +129,9 @@ const [formValues, setFormValues] = useState(initialValues);
           <p>{formErrors.password}</p>
           <button className="fluid ui button blue" onClick={fetchUsers}>Submit</button>
           {/* <button onClick={()=>{dispatch(login())}}>test</button>*/}
-          <p>{formErrors.login}</p>  
+          {Object.keys(formErrors).length === 0 && isSubmit ? (
+        <div className="ui message success">{response}</div>
+      ) : <p>{response}</p>}
         </div>
       </form>
       
