@@ -1,0 +1,25 @@
+#Hey {
+    font-family: Arial, Helvetica, sans-serif;
+    border-collapse: collapse;
+    width: 100%;
+  }
+  
+  #Hey td, #Hey th {
+    border: 1px solid rgb(12, 5, 5);
+    padding: 8px;
+  }
+  
+  #Hey tr:nth-child(even){background-color: #050404;}
+  
+  #Hey tr:hover
+   {
+    background-color: rgb(43, 100, 44);
+}
+  
+  #Hey th {
+    padding-top: 12px;
+    padding-bottom: 12px;
+    text-align: center;
+    background: transparent;
+    color: rgb(5, 3, 3);
+  }

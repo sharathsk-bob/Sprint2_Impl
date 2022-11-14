@@ -1,0 +1,25 @@
+#Hello {
+    font-family: Arial, Helvetica, sans-serif;
+    border-collapse: collapse;
+    width: 100%;
+  }
+  
+  #Hello td, #Hello th {
+    border: 1px solid rgb(12, 5, 5);
+    padding: 8px;
+  }
+  
+  #Hello tr:nth-child(even){background-color: #050404;}
+  
+  #Hello tr:hover
+   {
+    background-color: rgb(43, 100, 44);
+}
+  
+  #Hello th {
+    padding-top: 12px;
+    padding-bottom: 12px;
+    text-align: center;
+    background: transparent;
+    color: rgb(5, 3, 3);
+  }

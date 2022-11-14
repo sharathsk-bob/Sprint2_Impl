@@ -11,6 +11,16 @@ import NutritionModule from "./Components/NutritionModule";
 import Payment from "./Components/Payment/Payment";
 import DietPlan from "./Components/DietPlan";
 import WeightLog from "./Components/WeightLog";
+import DietPlanAdmin from "./Components/DietPlanAdmin";
+// import OptionsAvailable from "./Components/OptionsAvailable";
+//import { ThemeProvider } from 'styled-components';
+import DietPlanDelete from "./Components/DietPlanDelete";
+import Popup from "./Components/DietPlanUpdate";
+import DietPlanUpdate from "./Components/DietPlanUpdate";
+import Admin_1 from "./Components/OptionsAvailable";
+import OptionPage from "./Components/OptionPage";
+import ChangeOption from "./Components/ChangeOption";
+
 
 import PaymentUpdateForm from "./Components/Payment/PaymentUpdateForm";
 import PaymentAdmin from "./Components/Payment/PaymentAdmin";
@@ -42,6 +52,14 @@ function App() {
           <Route path="/DietPlan" element={<DietPlan />} />
           <Route path="/WeightLog" element={<WeightLog />} />
           <Route path="/customer" element={<Customer/>}/>
+          <Route path="/DietPlanAdmin" element={<DietPlanAdmin/>}/>
+          {/* <Route path="/OptionsAvailable" element={<OptionsAvailable/>}/> */}
+          <Route path="/DietPlanDelete" element={<DietPlanDelete/>}/>
+          <Route path="/DietPlanUpdate" element={<DietPlanUpdate/>}/>
+          <Route path="/Admin_1" element={<Admin_1/>}/>
+          <Route path="/OptionPage" element={<OptionPage/>}/>
+          <Route path="/ChangeOption" element={<ChangeOption/>}/>
+
           
           {/* {isLogged ? <p>Logged in</p>:<p>Not logged in</p>} */}
         </Routes>

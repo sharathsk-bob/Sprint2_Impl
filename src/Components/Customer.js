@@ -21,7 +21,7 @@ const [formValues, setFormValues] = useState(initialValues);
   };
   //const dis1=()=>{dispatch(register())};
   const fetchUsers = async() =>{
-    await axios.get('http://localhost:8020/capg/userinterface/users', 
+    await axios.get('http://localhost:8082/capg/userinterface/users', 
     JSON.stringify(formValues),{headers:{"Content-Type" : "application/json"}})
     .then((data)=>{
       for(let i=0;i<data.data.length;i++){
@@ -29,7 +29,7 @@ const [formValues, setFormValues] = useState(initialValues);
         if(data.data[i].email===formValues.email){
           let id=data.data[i].id;
           setFormValues({...formValues,[id]:id});
-          axios.put(`http://localhost:8020/capg/userinterface/users/${id}`, 
+          axios.put(`http://localhost:8082/capg/userinterface/users/${id}`, 
           JSON.stringify(formValues),{headers:{"Content-Type" : "application/json"}})
         }
       }
