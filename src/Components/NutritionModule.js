@@ -3,6 +3,7 @@ import axios from 'axios';
 import {useState,useEffect} from "react";
 import { useNavigate } from "react-router-dom";
 import PaymentModule from "../Components/Payment/Payment";
+import { Link } from 'react-router-dom'
 import './nutrition.css';
 function NutritionModule() {
     //const [input,setInput]=useState("");
@@ -20,18 +21,18 @@ function NutritionModule() {
   },[]);
   
     const pay=(id)=>{
-        history(`/PaymentCustomer`)
+        history(`/WeightLog`)
     }
   return (
-    <div data-testid="nutritiontest" >
-        <h1 data-testid="headtag" className='nutri-head' id ='nutri-head-id'>Nutrition Modules</h1>
+    <div >
+        <h1 className='nutri-head' id ='nutri-head-id'>Nutrition Modules</h1>
         <div className='nutri-scroll'>
         <div className='nutri-container'>
         {nutridata &&(
           <React.Fragment>
             {nutridata.map((nutri)=>(
               <div key={nutri.id} className='nutri-div' >
-            <p  className='nutri-p-name'>{nutri.name}</p>
+            <p className='nutri-p-name'>{nutri.name}</p>
             <p className='nutri-p'>{nutri.planDescription}</p>
             <p className='nutri-p'><i>Created At :</i>{nutri.created_At}</p>
             <p className='nutri-p'><i>Updated At :</i>{nutri.updated_At}</p>
@@ -42,6 +43,9 @@ function NutritionModule() {
             ))}
             </React.Fragment >)}
          </div>
+        </div>
+        <div className="card shadow-lg p-2 mb-2 bg-body rounded">
+        <Link className="list-group-item " to="/Admin_1">Back</Link>
       </div>
      {/* <button onClick={getAdmin}>BUY</button> */}
      {/* <button onClick={Pay}>BUY</button> */}
@@ -49,3 +53,4 @@ function NutritionModule() {
   )
 }
 export default NutritionModule;
+
