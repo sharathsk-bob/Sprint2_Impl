@@ -18,7 +18,7 @@ const formik = useFormik({
 
   onSubmit: (values) => {
     console.log(values);
-    axios.put(`http://localhost:8082/Diet/alterdiet/${formik.initialValues.id}`, values)
+    axios.put(`http://localhost:8082/capg/userinterface/diets/${formik.initialValues.id}`, values)
     .then(resp=>{
         console.log("Updated");
         console.log(resp.data);
@@ -65,8 +65,8 @@ return(
     <h2 class="card-header">Update Diet Plans</h2>
 
     {/* Form to Add Plan */}
-    <div className="card align-middle shadow-lg p-3 mb-5 bg-body rounded">
-        <div className="align-self-center shadow-lg p-3 mb-5 bg-body rounded">
+    {/* <div className="card align-middle shadow-lg p-3 mb-5 bg-body rounded">
+        <div className="align-self-center shadow-lg p-3 mb-5 bg-body rounded"> */}
         <form className="was-validated" autoComplete="off" onSubmit={formik.handleSubmit}>
 
         <div className="form-group">
@@ -110,15 +110,15 @@ return(
           <div className="mb-3 form-check">             
             </div>
 
-            <button type="submit" className="btn btn-outline-primary">
+            <button type="submit" className="btn btn-outline-primary" style={{marginTop: "0.5px", marginBottom: "10px"}}>
               Update
             </button>
         </form>
         <div className="card shadow-lg p-2 mb-1 bg-body rounded">
         <Link className="list-group-item " to="/ChangeOptionDiet">Back</Link>
         </div>
-          </div>
-          </div>
+          {/* </div>
+          </div> */}
           </div>
     </div>
     </div>

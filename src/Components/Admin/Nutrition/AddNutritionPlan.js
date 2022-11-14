@@ -21,7 +21,6 @@ const AddNutritionPlan = ({setNutritionPlan}) => {
     // const [carbsRatioNameErr, setcarbsRatioErr] = useState({});
     const [priceErr, setpriceErr] = useState({});
 
-
     //Handeling Input
     const handleInput = (e)=>{
         const name =e.target.name;
@@ -101,7 +100,6 @@ const AddNutritionPlan = ({setNutritionPlan}) => {
         
     }
 
-
   return (
     <div>
     {/* Heading for Add Card */}
@@ -110,8 +108,8 @@ const AddNutritionPlan = ({setNutritionPlan}) => {
     <h2 class="card-header">Add Nutrition Plans</h2>
 
     {/* Form to Add Plan */}
-    <div className="card align-middle shadow-lg p-3 mb-5 bg-body rounded">
-        <div className="align-self-center shadow-lg p-3 mb-5 bg-body rounded">
+    {/* <div className="card align-middle shadow-lg p-3 mb-5 bg-body rounded">
+        <div className="align-self-center shadow-lg p-3 mb-5 bg-body rounded"> */}
    
     {/* Form to Add Plan */}
     <form action="" onSubmit={handleSubmit} className="Diet">
@@ -143,7 +141,6 @@ const AddNutritionPlan = ({setNutritionPlan}) => {
         {Object.keys(planDescriptionErr).map((key)=>{
             return <div style={{color:"red", fontSize:"13px"}}>{planDescriptionErr[key]}</div>
         })}
-
 
         {/* Protein Ratio Input */}
         <div class="mb-3">
@@ -198,15 +195,14 @@ const AddNutritionPlan = ({setNutritionPlan}) => {
             return <div style={{color:"red", fontSize:"13px"}}>{priceErr[key]}</div>
         })}
 
-
         {/* Submit Button */}
         <button type='submit' class="btn btn-primary" style={{fontSize:"17px",marginTop:"10px"}}>Add Nutrition Plan</button>
         
     </form>
     </div>
     </div>
-    </div>
-    </div>
+    {/* </div>
+    </div> */}
     <div className="card shadow-lg p-2 mb-1 bg-body rounded">
         <Link className="list-group-item " to="/ChangeOptionNutri">Back</Link>
         </div>
@@ -215,4 +211,4 @@ const AddNutritionPlan = ({setNutritionPlan}) => {
   )
 }
 
-export default AddNutritionPlan;
+export default AddNutritionPlan;

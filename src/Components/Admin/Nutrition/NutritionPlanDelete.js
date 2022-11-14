@@ -28,7 +28,7 @@ const NutritionPlanDelete = () => {
 
   return (
     <div>
-      <h1>Nutrition Plan Delete</h1>
+      {/* <h1>Nutrition Plan Delete</h1> */}
 
       {/* <BookmarkFreelancerAdd/> */}
       {/* <BookmarkedFreelancerFindById/> */}
@@ -41,9 +41,9 @@ const NutritionPlanDelete = () => {
             </div>
             <form className="was-validated " onSubmit={(e) => onSubmit(e)}>
               <div className="mb-3">
-                <label htmlFor="exampleInputEmail1" className="form-label">
+                {/* <label htmlFor="exampleInputEmail1" className="form-label">
                   Nutrition plan
-                </label>
+                </label> */}
                 <input
                   type="number"
                   className="form-control"
@@ -56,14 +56,14 @@ const NutritionPlanDelete = () => {
                   required
                 />
                 <div className="invalid-feedback">
-                  Please Enter Valid Freelancer ID
+                  Please Enter Valid ID
                 </div>
               </div>
-              <button type="submit" className="btn btn-outline-primary">
+              <button type="submit" className="btn btn-outline-primary" >
                 Remove
               </button>
               <a href="/bookmarked_freelancer">
-                <button type="submit" className="btn btn-outline-danger mx-2">
+                <button type="submit" className="btn btn-outline-danger mx-2" >
                   Cancel
                 </button>
               </a>
@@ -78,4 +78,4 @@ const NutritionPlanDelete = () => {
   );
 };
 
-export default NutritionPlanDelete;
+export default NutritionPlanDelete;

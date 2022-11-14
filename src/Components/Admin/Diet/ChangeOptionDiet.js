@@ -23,8 +23,8 @@ const ChangeOptionDiet = () => {
       <div className="card shadow-lg p-2 mb-2 bg-body rounded">
         <Link className="list-group-item " to="/DietPlanUpdate">Update Diet Plans</Link>
         </div>
-        <div className="card shadow-lg p-2 mb-2 bg-body rounded">
-        <Link className="list-group-item " to="/OptionPage">Back</Link>
+        <div>
+        <Link className="btn btn-primary" style={{width: "200px"}} to="/OptionPage">Back</Link>
         </div>
       {/* </div> */}
     </div>
@@ -35,4 +35,3 @@ const ChangeOptionDiet = () => {
 }
 
 export default ChangeOptionDiet
-

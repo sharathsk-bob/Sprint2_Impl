@@ -3,7 +3,6 @@ import React from 'react';
 import { useState } from 'react';
 import { Link } from 'react-router-dom'
 
-
 const AddDietPlan = ({setDietPlan}) => {
     //Managing State of fills Using Use State, Initial Empty
     const [PlanDetails, setPlanDetails] = useState({
@@ -22,7 +21,6 @@ const AddDietPlan = ({setDietPlan}) => {
     const [carbsRatioNameErr, setcarbsRatioNameErr] = useState({});
     const [TotalNameErr, setTotalNameErr] = useState({});
 
-
     //Handeling Input
     const handleInput = (e)=>{
         const name =e.target.name;
@@ -37,7 +35,7 @@ const AddDietPlan = ({setDietPlan}) => {
         e.preventDefault();
         const isValid = formValidation();
         if(isValid){
-            axios.post("http://localhost:8082/Diet/adddiet",PlanDetails)
+            axios.post("http://localhost:8082/capg/userinterface/diets",PlanDetails)
             .then(resp=>{
                 console.log(resp.id)
                 alert("Successfully Added");
@@ -101,17 +99,16 @@ const AddDietPlan = ({setDietPlan}) => {
         
     }
 
-
   return (
     <div>
     {/* Heading for Add Card */}
-    <div class="card">
-    <div class="card-body">
-    <h2 class="card-header">Add Diet Plans</h2>
+    <div className="card" style={{width: "380px"}}>
+    <div className="card-body">
+    <h2 className="card-header">Add Diet Plans</h2>
 
     {/* Form to Add Plan */}
-    <div className="card align-middle shadow-lg p-3 mb-5 bg-body rounded">
-        <div className="align-self-center shadow-lg p-3 mb-5 bg-body rounded">
+    {/* <div className="card align-middle shadow-lg p-3 mb-5 bg-body rounded"> */}
+        {/* <div className="align-self-center shadow-lg p-3 mb-5 bg-body rounded"> */}
    
     <form action="" onSubmit={handleSubmit} className="Diet">
 
@@ -143,7 +140,6 @@ const AddDietPlan = ({setDietPlan}) => {
         {Object.keys(foodTypeNameErr).map((key)=>{
             return <div>{foodTypeNameErr[key]}</div>
         })}
-
 
         {/* Protein Ratio Input */}
         <div class="mb-3">
@@ -198,13 +194,12 @@ const AddDietPlan = ({setDietPlan}) => {
             return <div>{TotalNameErr[key]}</div>
         })}
 
-
         {/* Submit Button */}
         <button type='submit' class="btn btn-primary">Add DietPlan</button>
     </form>
     </div>
-    </div>
-    </div>
+    {/* </div> */}
+    {/* </div> */}
     </div>
     <div className="card shadow-lg p-2 mb-1 bg-body rounded">
         <Link className="list-group-item " to="/ChangeOptionDiet">Back</Link>
