@@ -5,7 +5,6 @@ import { BrowserRouter as Router, Routes, Route } from "react-router-dom";
 import Nav from "./Components/Nav";
 import UserLogin from "./Components/UserLogin";
 import UserRegister from "./Components/UserRegister";
-import Admin from "./Components/Admin";
 import Customer from "./Components/Customer";
 import NutritionModule from "./Components/NutritionModule";
 import Payment from "./Components/Payment/Payment";
@@ -54,7 +53,7 @@ function App() {
           {/* <Route path="/PaymentMainPage" element={<PaymentMainPage/>}/> */}
           <Route path="/register" element={<UserRegister/>}  />
           <Route path="/login" element={<UserLogin/>} />
-          <Route path="/admin" element={<Admin/>}/>
+          {/* <Route path="/admin" element={<Admin/>}/> */}
           <Route path="/DietPlan" element={<DietPlan />} />
           <Route path="/WeightLog" element={<WeightLog />} />
           <Route path="/customer" element={<Customer/>}/>

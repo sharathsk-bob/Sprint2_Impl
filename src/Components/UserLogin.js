@@ -7,7 +7,6 @@ import Button from 'react-bootstrap/Button';
 import Form from 'react-bootstrap/Form';
 import { login} from "../actions";
 import { render } from 'react-dom';
-import Admin from './Admin';
 import Nav from './Nav';
 //import state from "../Store";
 
