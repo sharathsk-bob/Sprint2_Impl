@@ -20,7 +20,7 @@ function NutritionModule() {
   },[]);
   
     const pay=(id)=>{
-        history(`/payment`)
+        history(`/PaymentCustomer`)
     }
   return (
     <div data-testid="nutritiontest" >

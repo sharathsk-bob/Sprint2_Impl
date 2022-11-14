@@ -20,6 +20,8 @@ const Admin_1 = () => {
       <div className="card shadow-lg p-2 mb-2 bg-body rounded">
         <Link className="list-group-item " to="/DietPlan">Diet Plans</Link>
         </div>
+        
+        
 		<div className="card shadow-lg p-2 mb-2 bg-body rounded">
         <Link className="list-group-item " to="/login">Back</Link>
         </div>
