@@ -44,9 +44,12 @@ const [formValues, setFormValues] = useState(initialValues);
   const validate = (values) => {
     const errors = {};
     errors.role="Role should be either Admin or Customer!";
+    const regex1 = /^[a-zA-Z0-9]+$/;
     const regex = /^[^\s@]+@[^\s@]+\.[^\s@]{2,}$/i;
     if (!values.loginName) {
       errors.loginName = "Login name is required!";
+    }else if (!regex1.test(values.loginName)) {
+      errors.loginName = "This is not a valid loginName format!";
     }
     if (!values.email) {
       errors.email = "Email is required!";
