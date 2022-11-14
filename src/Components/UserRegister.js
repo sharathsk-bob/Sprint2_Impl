@@ -30,6 +30,7 @@ const [formValues, setFormValues] = useState(initialValues);
   const handleSubmit = (e) => {
     e.preventDefault();
     setFormErrors(validate(formValues));
+    console.log(formErrors);
     setIsSubmit(true);
   };
 
@@ -42,6 +43,7 @@ const [formValues, setFormValues] = useState(initialValues);
 
   const validate = (values) => {
     const errors = {};
+    errors.role="Role should be either Admin or Customer!";
     const regex = /^[^\s@]+@[^\s@]+\.[^\s@]{2,}$/i;
     if (!values.loginName) {
       errors.loginName = "Login name is required!";
@@ -60,8 +62,8 @@ const [formValues, setFormValues] = useState(initialValues);
     }
     if(!values.role){
       errors.role="Role is required!";
-    }else if(!values.role==="Admin" || !values.role==="Customer"){
-      errors.role="Role should be either Admin or Customer!";
+    }else if(values.role==="Admin" || values.role==="Customer"){
+      errors.role="";
     }
     return errors;
   };

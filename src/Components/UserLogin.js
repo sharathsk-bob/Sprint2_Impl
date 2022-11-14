@@ -38,7 +38,6 @@ const [formValues, setFormValues] = useState(initialValues);
           history("/customer");
         }else{
           setIsLogged(false);
-        
         }
         break;
       }else{
@@ -131,7 +130,7 @@ const [formValues, setFormValues] = useState(initialValues);
           {/* <button onClick={()=>{dispatch(login())}}>test</button>*/}
           {Object.keys(formErrors).length === 0 && isSubmit ? (
         <div className="ui message success">{response}</div>
-      ) : <p>{response}</p>}
+      ) : <p>{formErrors.login}</p>}
         </div>
       </form>
       
