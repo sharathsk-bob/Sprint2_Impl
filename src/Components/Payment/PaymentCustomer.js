@@ -27,21 +27,21 @@ import FormControl from "@mui/material/FormControl";
 import FormLabel from "@mui/material/FormLabel";
 import { makeStyles } from "@mui/styles";
 import { useSelector, useDispatch } from "react-redux";
-import SimpleAccordion1 from "./SimpleAccordion1";
 import Accordian2 from "./Accordian2";
 
-
 const theme = createTheme();
-function PaymentModule(){
-  return(
+
+function PaymentCustomer() {
+  return (
     <div style={{padding: '60px'}}>
       
        <Container  height ='40vh' Width="50vw" style={{backgroundColor: 'rgba(255, 255, 255, 0.8)',padding: '50px'}} >
-       <h1 style={{color:'black', borderBlock:"red"}}> Admin Payment Options </h1>
-      <SimpleAccordion1/>
+       <h1 style={{color:'black', borderBlock:"red"}}>Customer Payment Options</h1>
      
+      <Accordian2/>
       </Container>
     </div>
   )
 }
-export default PaymentModule;
+
+export default PaymentCustomer

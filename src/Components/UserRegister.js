@@ -76,6 +76,8 @@ const [formValues, setFormValues] = useState(initialValues);
     }
     if(!values.role){
       errors.role="Role is required!";
+    }else if(values.role!="Admin" || values.role!="Customer"){
+      errors.role="Role should be either Admin or Customer!";
     }
     return errors;
   };

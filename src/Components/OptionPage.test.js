@@ -19,5 +19,11 @@ describe("OptionModule Component",()=>{
         const baseContainer = screen.getByTestId("newdiv");
         expect(baseContainer).toBeInTheDocument();
     })
+    it("Rendered Container", ()=>{
+        //jest.spyOn(AppointmentService, "getAppointment").mockResolvedValue(mockValue);
+        render(<OptionPage appointmentId={2}/>)
+        const baseContainer = screen.getByTestId("newdiv");
+        expect(baseContainer).toBeInTheDocument();
+    })
 
 });
