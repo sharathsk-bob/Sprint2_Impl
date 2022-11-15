@@ -35,7 +35,7 @@ const AddDietPlan = ({setDietPlan}) => {
         e.preventDefault();
         const isValid = formValidation();
         if(isValid){
-            axios.post("http://localhost:8082/capg/userinterface/diets",PlanDetails)
+            axios.post("http://localhost:8082/Diet/adddiet",PlanDetails)
             .then(resp=>{
                 console.log(resp.id)
                 alert("Successfully Added");

@@ -18,7 +18,7 @@ const formik = useFormik({
 
   onSubmit: (values) => {
     console.log(values);
-    axios.put(`http://localhost:8082/capg/userinterface/diets/${formik.initialValues.id}`, values)
+    axios.put(`http://localhost:8082/Diet/alterdiet/${formik.initialValues.id}`, values)
     .then(resp=>{
         console.log("Updated");
         console.log(resp.data);

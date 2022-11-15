@@ -19,7 +19,7 @@ const DietPlanDelete = () => {
   const onSubmit = async (e) => {
     e.preventDefault();
     await axios.delete(
-      `http://localhost:8082/capg/userinterface/diets/${input}`
+      `http://localhost:8082/Diet/deldiet${input}`
     );
     console.log("Removed");
     alert("Successfully Deleted");

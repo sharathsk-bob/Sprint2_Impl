@@ -18,10 +18,7 @@ function WeightLog() {
       .catch((error) => console.log(error));}
       v()
   }, []);
-  const history=useNavigate();
-  const select=(id)=>{
-    history(`/Payment`)
-}
+ 
 
   return (
     <div>
@@ -35,7 +32,7 @@ function WeightLog() {
             <p className='Weightlog-p-name'><i>Weight:</i>{Weightlog.weight}</p>
             <p className='Weightlog-p'><i>Created_At:</i>{Weightlog.created_At}</p>
             <p className='Weightlog-p'><i>Updated_At:</i>{Weightlog.updated_At}</p>
-            <button className='Weightlog-button' onClick={ ()=>select(Weightlog.id)}> NEXT</button>
+            
             </div>
               
             ))}

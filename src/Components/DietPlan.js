@@ -12,7 +12,7 @@ function DietPlan() {
   useEffect(() => {
 
     const v = () => {axios
-      .get(`http://localhost:8082//capg/userinterface/diets`)
+      .get(`http://localhost:8082/Diet/listdiets`)
       .then((dat) => {
         setDietPlan(dat.data);
         console.log(dietPlan.data);
@@ -22,7 +22,7 @@ function DietPlan() {
   }, []);
   const history=useNavigate();
   const select=(id)=>{
-    history(`/WeightLog`)
+    history(`/PaymentCustomer`)
 }
 
   return (

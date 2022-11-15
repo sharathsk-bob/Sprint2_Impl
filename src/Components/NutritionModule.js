@@ -21,7 +21,7 @@ function NutritionModule() {
   },[]);
   
     const pay=(id)=>{
-        history(`/WeightLog`)
+        history(`/PaymentCustomer`)
     }
   return (
     <div >

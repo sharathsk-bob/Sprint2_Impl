@@ -20,6 +20,9 @@ const OptionPage = () => {
       <div className="card shadow-lg p-2 mb-2 bg-body rounded">
         <Link className="list-group-item " to="/ChangeOptionDiet">Update Diet Plans</Link>
         </div>
+        <div className="card shadow-lg p-2 mb-2 bg-body rounded">
+        <Link className="list-group-item " to="/payment">Payment Operations</Link>
+        </div>
         <button type='submit' class="btn btn-primary" style={{fontSize:"17px",marginTop:"10px", width:"200px", height: "50px", marginLeft: "100px"}}>Back To Home Page</button>
       {/* </div> */}
     </div>
